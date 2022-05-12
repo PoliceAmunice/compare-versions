@@ -1,5 +1,8 @@
 [
-   { "id": 0, "version1": "1.01", "version2": "1.001", "expected": 0 },
-   { "id": 1, "version1": "1.0", "version2": "1.0.0", "expected": 0 },
-   { "id": 2, "version1": "0.1", "version2": "1.1", "expected": -1 }
+   { "id": 1, "version1": "1.01", "version2": "1.001", "expected": 0 },
+   { "id": 2, "version1": "1.0", "version2": "1.0.0", "expected": 0 },
+   { "id": 3, "version1": "0.1", "version2": "1.1", "expected": -1 },
+   { "id": 4, "version1": "1.0", "version2": "1.0.12", "expected": -1 },
+   { "id": 5, "version1": "1.0.12", "version2": "1.0", "expected": 1 },
+   { "id": 6, "version1": "1", "version2": "1.2", "expected": -1 }
 ]
