@@ -6,19 +6,16 @@ export function compareVersions(v1, v2) {
 }
 
 function compare(arr1, arr2) {
-   const el1 = +arr1.shift();
-   const el2 = +arr2.shift();
+   const el1 = +arr1.shift() || 0;
+   const el2 = +arr2.shift() || 0;
 
    if (el1 < el2) {
       return -1;
    } else if (el1 > el2) {
       return 1;
-   } else if (!!arr1[0] === !!arr2[0]) {
-      return arr1[0] ? compare(arr1, arr2) : 0;
+   } else if (!arr1[0] && !arr2[0]) {
+      return 0;
    } else {
-      return !arr1[0]
-         ? compare(['0'], arr2)
-         : compare(arr1, ['0'])
-      ;
+      return compare(arr1, arr2);
    }
 }
