@@ -1,13 +1,15 @@
-import { compareVersions } from './compare-versions.js';
+import { compareVersionsRecursive, compareVersionsCycle } from './compare-versions.js';
 import mockData from './mock-data.json' assert {type: "json"};
 
 
-testFunction(compareVersions, mockData);
+testFunction('recursive', compareVersionsRecursive, mockData);
+testFunction('cycle', compareVersionsCycle, mockData);
 
-function testFunction(func, mockData) {
+function testFunction(label, func, mockData) {
    let result = 0;
 
-   console.log('\nStart testing...');
+   console.log(`\nStart testing "${label}"...`);
+   console.time('Time spent');
 
    mockData.forEach(({id, version1, version2, expected}) => {
       result = func(version1, version2);
@@ -19,5 +21,7 @@ function testFunction(func, mockData) {
       }
    })
 
-   console.log('Finished.\n');
+   console.log(`Finished`);
+   console.timeEnd('Time spent');
+   console.log();
 }
